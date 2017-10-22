@@ -29,7 +29,7 @@ public class BotTeleOPSteer extends OpMode{
 
     double       clawOffset   = 0;
     double       jewelOffset  = 0;
-    final double SERVO_SPEED  = 0.02 ;             // sets rate to move servos on the claw
+    final double SERVO_SPEED  = 0.01 ;             // sets rate to move servos on the claw
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -78,8 +78,8 @@ public class BotTeleOPSteer extends OpMode{
         steering = smoothCurve(steering);
 
         // Actual steering logic
-        right = Range.clip((throttle+steering), -1, 1);
-        left = Range.clip((throttle-steering), -1, 1);
+        right = Range.clip((throttle-steering), -1, 1);
+        left = Range.clip((throttle+steering), -1, 1);
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
 
@@ -92,7 +92,7 @@ public class BotTeleOPSteer extends OpMode{
         // Move the jewel servo to the new position, assuming positive jewel offset moves further down when subtracted
         // (i.e. the servo starts near 1 when raised up)
         jewelOffset = Range.clip(jewelOffset, 0, 0.8);
-        robot.jewelArm.setPosition(robot.JEWEL_ARM_UP - jewelOffset);
+        robot.jewelArm.setPosition(robot.JEWEL_ARM_UP + jewelOffset);
 
 
 

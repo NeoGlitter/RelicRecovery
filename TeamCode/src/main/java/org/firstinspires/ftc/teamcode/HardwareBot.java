@@ -16,7 +16,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Motor channel:  Left  drive motor:        "left_drive"
  * Motor channel:  Right drive motor:        "right_drive"
  * Motor channel:  Parallelogram arm drive motor:  "arm"
- * * Motor channel:  Horizontal linear slide drive motor:  "linear_drive"
+ * * Motor channel:  Horizontlal linear slide drive motor:  "linear_drive"
  * Servo channel:  Servo to flick down jewel arm:  "jewel_arm"
  * Servo channel:  Servo to open right claw: "right_claw"
  * Servo channel:  Servo to open left claw: "left_claw"
@@ -34,8 +34,7 @@ public class HardwareBot
 
     public static final double LEFT_CLAW_OPEN       =  0.05;
     public static final double RIGHT_CLAW_OPEN      =  0.85;
-    public static final double JEWEL_ARM_UP         =  0.9;
-
+    public static final double JEWEL_ARM_UP         =  0.2;
 
 
     /* local OpMode members. */
@@ -55,7 +54,7 @@ public class HardwareBot
         // Define and Initialize DC Motors
         leftDrive   = hwMap.get(DcMotor.class, "left_drive");
         rightDrive  = hwMap.get(DcMotor.class, "right_drive");
-        arm         = hwMap.get(DcMotor.class, "left_arm");
+        arm         = hwMap.get(DcMotor.class, "arm");
         linearDrive = hwMap.get(DcMotor.class, "linear_drive");
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
